@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>小兒麻醉｜互動衛教教材</title>
+<meta name="description" content="中國醫藥大學附設醫院麻醉部「小兒麻醉」衛教教材，含 5 題選擇題與即時回饋。">
+<meta name="theme-color" content="#0f766e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="小兒麻醉">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+  :root{
+    --fs:17px;
+    --bg:#f6fbf9;
+    --surface:#ffffff;
+    --surface-2:#f1f8f5;
+    --ink:#1b2b27;
+    --ink-2:#566863;
+    --line:#e1ebe7;
+    --teal:#0f766e;
+    --teal-2:#115e59;
+    --teal-3:#2dd4bf;
+    --teal-soft:#e6fffa;
+    --amber:#b45309;
+    --amber-soft:#fff8e6;
+    --ok:#15803d;
+    --ok-soft:#ecfdf5;
+    --no:#b91c1c;
+    --no-soft:#fef2f2;
+    --shadow:0 10px 28px rgba(15,90,82,.08);
+    --nav-bg:rgba(255,255,255,.94);
+    --hero-a:#0f766e;
+    --hero-b:#0a4f4b;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c1513;
+      --surface:#131f1c;
+      --surface-2:#182824;
+      --ink:#e7f2ef;
+      --ink-2:#9db3ad;
+      --line:#253a35;
+      --teal:#2dd4bf;
+      --teal-2:#5eead4;
+      --teal-soft:#10312c;
+      --amber:#f2c14e;
+      --amber-soft:#2a2113;
+      --ok:#4ade80;
+      --ok-soft:#0f2a1c;
+      --no:#f87171;
+      --no-soft:#2c1414;
+      --shadow:none;
+      --nav-bg:rgba(19,31,28,.95);
+      --hero-a:#0f5f59;
+      --hero-b:#083f3b;
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{font-size:var(--fs);scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(74px + env(safe-area-inset-bottom));
+  }
+  button{font-family:inherit;}
+  [hidden]{display:none !important;}
+
+  /* ===== App bar ===== */
+  .appbar{
+    position:sticky;top:0;z-index:60;
+    background:var(--nav-bg);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .appbar-in{
+    max-width:760px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;padding:9px 16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;min-width:0;}
+  .brand svg{width:36px;height:36px;flex:0 0 auto;border-radius:11px;box-shadow:0 4px 10px rgba(15,118,110,.22);}
+  .brand .t{min-width:0;}
+  .brand strong{display:block;font-size:.98rem;line-height:1.3;letter-spacing:.02em;white-space:nowrap;}
+  .brand small{display:block;font-size:.66rem;color:var(--ink-2);letter-spacing:.08em;line-height:1.4;}
+  .actions{display:flex;gap:4px;flex:0 0 auto;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:11px;border:none;background:transparent;
+    color:var(--ink-2);display:grid;place-items:center;cursor:pointer;
+    font-size:.9rem;font-weight:800;
+    transition:background .15s,color .15s;
+  }
+  .icon-btn:hover{background:var(--teal-soft);color:var(--teal);}
+  .icon-btn svg{width:21px;height:21px;}
+  .icon-btn:focus-visible{outline:2px solid var(--teal-3);outline-offset:2px;}
+  .readbar{height:3px;background:transparent;}
+  .readbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#2dd4bf,#0f766e);transition:width .1s linear;}
+
+  .main{max-width:760px;margin:0 auto;padding:16px 14px 30px;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(150deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:22px;
+    padding:26px 22px 22px;
+    box-shadow:0 14px 34px rgba(8,63,59,.28);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-54px;top:-54px;width:180px;height:180px;
+    border-radius:50%;background:rgba(255,255,255,.08);
+  }
+  .hero::before{
+    content:"";position:absolute;right:26px;bottom:-74px;width:130px;height:130px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .tag{
+    display:inline-block;position:relative;z-index:1;
+    font-size:.68rem;letter-spacing:.12em;font-weight:700;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.28);
+    padding:4px 11px;border-radius:99px;
+  }
+  .hero h1{
+    position:relative;z-index:1;
+    margin:12px 0 4px;font-size:clamp(1.9rem,8vw,2.5rem);
+    line-height:1.25;letter-spacing:.06em;font-weight:800;
+  }
+  .hero p{position:relative;z-index:1;margin:0;font-size:.92rem;color:#d5f3ef;max-width:32em;}
+  .chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+  .chips span{
+    font-size:.7rem;color:#ecfffc;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    padding:4px 10px;border-radius:9px;
+  }
+  .chips b{color:#fff;}
+
+  /* ===== Content sheet ===== */
+  .sheet{
+    margin-top:16px;background:var(--surface);
+    border:1px solid var(--line);border-radius:18px;
+    padding:20px 18px 22px;box-shadow:var(--shadow);
+    overflow-wrap:break-word;
+  }
+  .sheet > :first-child{margin-top:0;}
+  .sheet h2{
+    margin:30px 0 12px;padding-left:11px;
+    border-left:4px solid var(--teal);
+    font-size:1.22rem;line-height:1.5;color:var(--teal-2);letter-spacing:.01em;
+  }
+  .sheet h2:first-of-type{margin-top:26px;}
+  .sheet h3{
+    margin:22px 0 8px;font-size:1.03rem;color:var(--ink);
+    display:flex;gap:8px;align-items:baseline;
+  }
+  .sheet h3::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal-3);flex:0 0 auto;transform:translateY(-2px);}
+  .sheet p{margin:0 0 12px;color:var(--ink);}
+  .sheet p:last-child{margin-bottom:0;}
+  .sheet strong{color:var(--teal-2);font-weight:700;}
+  @media (prefers-color-scheme: dark){ .sheet strong{color:var(--teal-2);} }
+  .sheet ul,.sheet ol{margin:10px 0 14px;padding:0;}
+  .sheet ul{list-style:none;}
+  .sheet ul > li{position:relative;padding-left:19px;margin-bottom:7px;}
+  .sheet ul > li::before{
+    content:"";position:absolute;left:2px;top:.72em;
+    width:7px;height:7px;border-radius:50%;
+    background:var(--teal-3);opacity:.85;
+  }
+  .sheet ol{list-style:none;counter-reset:li;}
+  .sheet ol > li{position:relative;padding-left:26px;margin-bottom:8px;counter-increment:li;font-size:.92rem;color:var(--ink-2);}
+  .sheet ol > li::before{
+    content:counter(li);position:absolute;left:0;top:.18em;
+    width:19px;height:19px;border-radius:6px;
+    background:var(--teal-soft);color:var(--teal-2);
+    font-size:.68rem;font-weight:800;
+    display:grid;place-items:center;
+  }
+  .sheet blockquote{
+    margin:14px 0;padding:11px 14px;
+    background:var(--amber-soft);
+    border-left:4px solid #f0b429;
+    border-radius:10px;
+    color:var(--amber);font-size:.88rem;
+  }
+  .sheet blockquote p{margin:0;color:inherit;}
+  .sheet hr{border:none;height:1px;background:var(--line);margin:26px 0;}
+  #reflectBody h2:first-of-type{margin-top:0;}
+
+  /* task list */
+  .sheet ul.tasks{display:grid;gap:8px;margin-top:14px;}
+  .sheet ul.tasks > li{padding-left:0;margin-bottom:0;}
+  .sheet ul.tasks > li::before{display:none;}
+  .task{
+    display:flex;align-items:flex-start;gap:11px;
+    padding:12px 13px;border-radius:12px;
+    background:var(--surface-2);border:1px solid var(--line);
+    cursor:pointer;font-size:.92rem;line-height:1.7;
+    transition:border-color .15s,background .15s;
+  }
+  .task:active{background:var(--teal-soft);}
+  .task input{position:absolute;opacity:0;width:0;height:0;}
+  .task .box{
+    flex:0 0 auto;width:21px;height:21px;border-radius:7px;
+    border:2px solid #b9d6cf;background:var(--surface);
+    margin-top:3px;position:relative;
+  }
+  @media (prefers-color-scheme: dark){ .task .box{border-color:#3c5b54;} }
+  .task input:checked + .box{background:var(--teal);border-color:var(--teal);}
+  .task input:checked + .box::after{
+    content:"";position:absolute;left:6px;top:2px;
+    width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;
+    transform:rotate(45deg);
+  }
+  .task input:focus-visible + .box{outline:2px solid var(--teal-3);outline-offset:2px;}
+  .task .txt{flex:1;}
+  .task input:checked ~ .txt{color:var(--ink-2);}
+
+  /* ===== Section heading ===== */
+  .block{margin-top:26px;scroll-margin-top:74px;}
+  .block-head{margin-bottom:12px;}
+  .kicker{
+    display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.14em;
+    color:var(--teal);background:var(--teal-soft);
+    padding:3px 10px;border-radius:99px;margin-bottom:7px;
+  }
+  .block-head h2{margin:0;font-size:1.3rem;line-height:1.4;color:var(--ink);letter-spacing:.01em;}
+  .block-head p{margin:4px 0 0;font-size:.84rem;color:var(--ink-2);line-height:1.7;}
+
+  /* ===== 閱讀完成 / 解鎖 ===== */
+  .read-done{
+    display:flex;align-items:center;gap:11px;
+    margin-top:16px;padding:14px 15px;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;box-shadow:var(--shadow);
+    scroll-margin-top:80px;
+  }
+  .rd-badge{
+    flex:0 0 auto;width:36px;height:36px;border-radius:11px;
+    background:var(--surface-2);border:1px solid var(--line);
+    color:var(--ink-2);display:grid;place-items:center;
+  }
+  .rd-badge svg{width:19px;height:19px;}
+  .rd-badge .i-check{display:none;}
+  .read-done.ready .rd-badge{background:var(--teal-soft);border-color:rgba(45,212,191,.5);color:var(--teal);}
+  .read-done.done .rd-badge{background:var(--teal);border-color:var(--teal);color:#fff;}
+  .read-done.done .rd-badge .i-lock{display:none;}
+  .read-done.done .rd-badge .i-check{display:block;}
+  .rd-text{flex:1;min-width:0;}
+  .rd-text strong{display:block;font-size:.86rem;line-height:1.5;letter-spacing:.01em;}
+  .rd-text span{display:block;font-size:.72rem;color:var(--ink-2);line-height:1.5;margin-top:1px;}
+  .read-done .btn{flex:0 0 auto;padding:7px 12px;font-size:.74rem;border-radius:9px;}
+  .btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;}
+
+  .locked{
+    background:var(--surface);border:1px dashed #b9d6cf;
+    border-radius:16px;padding:28px 20px 24px;text-align:center;
+    box-shadow:var(--shadow);
+  }
+  @media (prefers-color-scheme: dark){ .locked{border-color:#35544d;} }
+  .lock-ico{
+    width:48px;height:48px;border-radius:14px;margin:0 auto 11px;
+    background:var(--surface-2);border:1px solid var(--line);
+    color:var(--ink-2);display:grid;place-items:center;
+  }
+  .lock-ico svg{width:24px;height:24px;}
+  .locked h3{margin:0 0 5px;font-size:.98rem;}
+  .locked p{margin:0 0 15px;font-size:.82rem;color:var(--ink-2);line-height:1.75;}
+
+  /* ===== Quiz ===== */
+  .quiz-status{
+    display:flex;align-items:center;gap:10px;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;padding:10px 13px;margin-bottom:12px;
+    font-size:.78rem;color:var(--ink-2);
+    box-shadow:var(--shadow);
+  }
+  .quiz-status b{color:var(--teal-2);font-size:.9rem;}
+  .track{flex:1;height:7px;background:var(--surface-2);border-radius:99px;overflow:hidden;min-width:40px;}
+  .track span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#34d399,#0f766e);transition:width .35s ease;}
+
+  .q{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:16px 15px;margin-bottom:12px;box-shadow:var(--shadow);
+    scroll-margin-top:80px;
+  }
+  .q-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;}
+  .q-num{
+    flex:0 0 auto;width:27px;height:27px;border-radius:8px;
+    background:var(--teal-2);color:#fff;
+    display:grid;place-items:center;
+    font-size:.72rem;font-weight:800;
+  }
+  @media (prefers-color-scheme: dark){ .q-num{background:var(--teal);color:#06211d;} }
+  .q h3{margin:1px 0 0;font-size:.97rem;line-height:1.65;font-weight:700;letter-spacing:.01em;}
+  .opts{display:grid;gap:8px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:10px;
+    width:100%;text-align:left;
+    background:var(--surface-2);border:1.5px solid var(--line);
+    border-radius:12px;padding:11px 12px;
+    color:var(--ink);font-size:.9rem;line-height:1.6;
+    cursor:pointer;
+    transition:border-color .15s,background .15s,transform .08s;
+  }
+  .opt:active:not(:disabled){transform:scale(.99);}
+  .opt:disabled{cursor:default;}
+  .opt .badge{
+    flex:0 0 auto;width:23px;height:23px;border-radius:7px;
+    border:1.5px solid #c2d9d3;background:var(--surface);
+    color:var(--ink-2);
+    display:grid;place-items:center;
+    font-size:.68rem;font-weight:800;margin-top:1px;
+  }
+  @media (prefers-color-scheme: dark){ .opt .badge{border-color:#3c5b54;} }
+  .opt .otxt{flex:1;}
+  .opt.correct{border-color:#4ade80;background:var(--ok-soft);}
+  .opt.correct .badge{background:var(--ok);border-color:var(--ok);color:#fff;}
+  .opt.wrong{border-color:#fca5a5;background:var(--no-soft);}
+  .opt.wrong .badge{background:var(--no);border-color:var(--no);color:#fff;}
+  .fb{display:none;margin-top:11px;padding:11px 13px;border-radius:11px;font-size:.86rem;line-height:1.75;}
+  .fb.show{display:block;animation:fade .25s ease;}
+  .fb.ok{background:var(--ok-soft);border:1px solid rgba(74,222,128,.45);color:var(--ok);}
+  .fb.no{background:var(--no-soft);border:1px solid rgba(248,113,113,.4);color:var(--no);}
+  .fb strong{display:block;margin-bottom:2px;font-size:.9rem;}
+  .fb p{margin:0;color:var(--ink);font-size:.85rem;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  .result{
+    margin-top:6px;padding:22px 18px;
+    background:linear-gradient(160deg,var(--teal-soft),var(--surface));
+    border:1px solid rgba(45,212,191,.35);
+    border-radius:18px;text-align:center;
+    animation:fade .3s ease;
+  }
+  .ring{
+    --p:0;width:108px;height:108px;border-radius:50%;
+    background:conic-gradient(#10b981 calc(var(--p) * 1%), var(--line) 0);
+    display:grid;place-items:center;margin:0 auto 12px;
+    transition:--p .4s ease;
+  }
+  .ring::before{content:"";grid-area:1/1;width:84px;height:84px;border-radius:50%;background:var(--surface);}
+  .ring span{grid-area:1/1;z-index:1;font-size:1.3rem;font-weight:800;color:var(--teal-2);letter-spacing:.02em;}
+  .result h3{margin:0 0 4px;font-size:1.02rem;}
+  .result p{margin:0;font-size:.86rem;color:var(--ink-2);line-height:1.75;}
+  .res-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:15px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    border:none;border-radius:11px;padding:9px 18px;
+    background:var(--teal);color:#fff;
+    font-size:.85rem;font-weight:700;cursor:pointer;
+    box-shadow:0 6px 14px rgba(15,118,110,.22);
+    transition:background .15s,transform .08s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn.ghost{background:var(--surface);color:var(--teal-2);border:1.5px solid rgba(45,212,191,.4);box-shadow:none;}
+  @media (prefers-color-scheme: dark){ .btn{color:#04211d;} }
+  .btn svg{width:16px;height:16px;}
+
+  /* ===== Footer ===== */
+  .foot{
+    margin-top:26px;padding:16px 4px 8px;
+    text-align:center;font-size:.72rem;line-height:1.9;color:var(--ink-2);
+  }
+  .foot .print-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-bottom:12px;padding:8px 15px;border-radius:10px;
+    background:var(--surface);border:1px solid var(--line);
+    color:var(--ink-2);font-size:.78rem;cursor:pointer;
+  }
+  .foot .print-btn svg{width:16px;height:16px;}
+
+  /* ===== Bottom nav ===== */
+  .bottom-nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:var(--nav-bg);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-top:1px solid var(--line);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .nav-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);}
+  .nav-btn{
+    border:none;background:none;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    padding:8px 0 6px;color:var(--ink-2);font-size:.68rem;letter-spacing:.04em;
+    transition:color .15s;
+  }
+  .nav-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .nav-btn.active{color:var(--teal);font-weight:700;}
+  .nav-btn:focus-visible{outline:2px solid var(--teal-3);outline-offset:-2px;}
+
+  /* ===== Modal ===== */
+  .modal{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(8,20,18,.55);
+    display:flex;align-items:flex-end;justify-content:center;
+    padding:16px;
+  }
+  @media (min-width:600px){ .modal{align-items:center;} }
+  .modal-card{
+    width:100%;max-width:420px;
+    background:var(--surface);border-radius:20px;
+    padding:20px 20px 18px;box-shadow:0 20px 60px rgba(0,0,0,.3);
+    animation:sheetUp .25s ease;
+  }
+  @keyframes sheetUp{from{transform:translateY(20px);opacity:0;}to{transform:none;opacity:1;}}
+  .modal-card h3{margin:0 0 10px;font-size:1.02rem;}
+  .modal-card ol{margin:0 0 10px;padding-left:20px;font-size:.86rem;line-height:1.85;color:var(--ink-2);}
+  .modal-card p{margin:0 0 14px;font-size:.8rem;color:var(--ink-2);line-height:1.7;}
+  .modal-card .btn{width:100%;}
+
+  .toast{
+    position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));
+    transform:translate(-50%,10px);
+    background:rgba(18,38,34,.94);color:#fff;
+    padding:9px 16px;border-radius:99px;
+    font-size:.8rem;z-index:120;
+    opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+    max-width:86vw;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  @media print{
+    body{background:#fff;color:#000;padding:0;font-size:11pt;}
+    .appbar,.bottom-nav,.toast,.modal,.res-actions,.quiz-status,.foot .print-btn,.read-done,.locked,.hero::after,.hero::before{display:none !important;}
+    #quizBody{display:block !important;}
+    .main{max-width:none;padding:0;}
+    .hero{box-shadow:none;border-radius:0;padding:16pt;background:#0f766e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .sheet,.q{box-shadow:none;border-color:#ccc;break-inside:avoid;}
+    .opts{grid-template-columns:1fr;}
+    .fb{display:block;}
+    .opt{background:#fff !important;}
+    .opt.correct{border-color:#15803d !important;}
+    .opt.wrong{border-color:#b91c1c !important;}
+    .result{display:none !important;}
+    .ring{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="appbar-in">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#0f766e"/>
+        <circle cx="19" cy="20" r="7" fill="#fff6e5"/>
+        <circle cx="45" cy="20" r="7" fill="#fff6e5"/>
+        <circle cx="19" cy="20" r="3" fill="#f3c98b"/>
+        <circle cx="45" cy="20" r="3" fill="#f3c98b"/>
+        <circle cx="32" cy="36" r="15.5" fill="#fff6e5"/>
+        <circle cx="26" cy="34" r="2.3" fill="#14332f"/>
+        <circle cx="38" cy="34" r="2.3" fill="#14332f"/>
+        <ellipse cx="32" cy="43" rx="7" ry="5" fill="#14332f"/>
+        <path d="M28 47c1.5 2 6.5 2 8 0" stroke="#14332f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="t">
+        <strong>小兒麻醉</strong>
+        <small>互動衛教教材</small>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="icon-btn" id="fontBtn" type="button" aria-label="調整字體大小" title="調整字體大小">Aa</button>
+      <button class="icon-btn" id="installBtn" type="button" aria-label="加到手機主畫面" title="加到手機主畫面">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="m8 10 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </button>
+      <button class="icon-btn" id="shareBtn" type="button" aria-label="分享教材" title="分享教材">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4"/><path d="m8.6 13.5 6.8 4"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="readbar"><span id="readFill"></span></div>
+</header>
+
+<main class="main">
+  <section class="hero" id="top">
+    <span class="tag">衛教單張 · 麻醉部</span>
+    <h1>小兒麻醉</h1>
+    <p>陪孩子安心接受麻醉與手術。把擔心說出來，把疑問問清楚。</p>
+    <div class="chips">
+      <span>對象：<b>家長與照顧者</b></span>
+      <span>閱讀：<b>約 6 分鐘</b></span>
+      <span>評量：<b>5 題</b></span>
+    </div>
+  </section>
+
+  <article class="sheet" id="content" aria-label="教材內容"></article>
+
+  <div class="read-done" id="readDone" aria-live="polite">
+    <span class="rd-badge" aria-hidden="true">
+      <svg class="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+    </span>
+    <div class="rd-text">
+      <strong id="rdTitle">讀到最後，測驗就會解鎖</strong>
+      <span id="rdDesc">把教材完整看完，才能進入測驗。</span>
+    </div>
+    <button class="btn" type="button" id="startQuiz" disabled>開始測驗</button>
+  </div>
+
+  <section class="block" id="quiz" aria-labelledby="quizTitle">
+    <div class="block-head">
+      <span class="kicker">四、學習評量</span>
+      <h2 id="quizTitle">5 題選擇題</h2>
+      <p>點選最合適的答案，立即顯示回饋與解析。每題作答一次。</p>
+    </div>
+
+    <div class="locked" id="quizLocked">
+      <span class="lock-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      </span>
+      <h3>測驗尚未解鎖</h3>
+      <p>請先閱讀完整份教材。<br>讀到教材最後，測驗就會自動解鎖。</p>
+      <button class="btn ghost" type="button" id="goRead">前往閱讀教材</button>
+    </div>
+
+    <div id="quizBody" hidden>
+      <div class="quiz-status" aria-live="polite">
+        <span>已完成 <b id="doneNum">0</b>/5</span>
+        <span class="track"><span id="trackFill"></span></span>
+        <span>得分 <b id="scoreNum">0</b></span>
+      </div>
+
+      <div id="quizList"></div>
+
+      <div class="result" id="quizResult" hidden>
+        <div class="ring" id="ring"><span id="ringTxt">0/5</span></div>
+        <h3 id="resTitle">—</h3>
+        <p id="resText"></p>
+        <div class="res-actions">
+          <button class="btn ghost" type="button" id="retryBtn">重新作答</button>
+          <button class="btn" type="button" id="shareResult">分享成績</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="reflect" aria-label="學習回饋與自我檢核">
+    <div class="sheet" id="reflectBody"></div>
+  </section>
+
+  <footer class="foot">
+    <button class="print-btn" type="button" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="6" y="14" width="12" height="7"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/></svg>
+      列印／存成 PDF
+    </button>
+    <div>中國醫藥大學附設醫院 · 麻醉部｜編碼 HE-20138</div>
+    <div>本教材僅供衛生教育參考，實際照護請以醫療團隊說明為準。</div>
+  </footer>
+</main>
+
+<nav class="bottom-nav" aria-label="頁面導覽">
+  <div class="nav-inner">
+    <button class="nav-btn active" type="button" data-target="content">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5z"/></svg>
+      教材
+    </button>
+    <button class="nav-btn" type="button" data-target="quiz">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>
+      測驗
+    </button>
+    <button class="nav-btn" type="button" data-target="reflect">
+      <svg viewBox="0 0 24 24"><path d="M20.8 8.6a5.5 5.5 0 0 0-8.8-1.4L12 7.4l-.1-.2a5.5 5.5 0 1 0-7.9 7.6L12 22l8-7.2a5.5 5.5 0 0 0 .8-6.2z"/></svg>
+      回饋
+    </button>
+  </div>
+</nav>
+
+<div class="modal" id="tipModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="tipTitle">
+    <h3 id="tipTitle">加到手機主畫面</h3>
+    <ol>
+      <li><b>iPhone：</b>用 Safari 開啟 → 點下方「分享」→「加入主畫面」。</li>
+      <li><b>Android：</b>用 Chrome 開啟 → 右上角「⋮」→「安裝應用程式」或「加到主畫面」。</li>
+    </ol>
+    <p>加入後可全螢幕開啟，像 App 一樣使用；曾開啟過即可離線閱讀。</p>
+    <button class="btn" type="button" id="tipClose">知道了</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ===== Markdown 內容（單檔離線時使用；以 HTTP 開啟時優先讀取 content.md） ===== -->
+<script type="text/markdown" id="md-source">
+# 小兒麻醉
+
+> 衛教單張 · 麻醉部｜編碼 HE-20138
+> 對象：家長與照顧者｜閱讀時間約 6 分鐘｜學習評量 5 題
+
+## 前言
+
+當您的小朋友需要在麻醉的狀況下接受外科手術或是檢查，想必會讓您非常憂心，也有很多的疑問。
+
+這裡我們提供簡單的資訊供您參考，也請您詳細地與麻醉醫師討論，以獲得針對孩子狀況更明確的解答。
+
+## 先看重點
+
+- **病史要說清楚**：先天性、遺傳性疾病、用藥史、過敏史與過去麻醉經驗，都是麻醉規劃的重要依據。
+- **方式因人而異**：多以全身麻醉進行；幼童可先以肌肉注射或面罩吸入誘導，睡著後再打點滴。
+- **家長是安定力量**：恢復室通常會請家長陪伴，減輕孩子焦慮；離院前護理師會說明進食與傷口照護。
+
+## 一、小朋友如何麻醉？
+
+### 1. 術前完整評估
+
+不論您的小朋友需要接受何種治療或是手術，我們都必須詳細地知道小朋友的過去病史，包含**先天性、遺傳性疾病、用藥史、過敏史，甚至是麻醉的經驗**，以提供本次麻醉的參考。
+
+### 2. 選擇合適的麻醉誘導方式
+
+一般小朋友接受麻醉的方式為**全身麻醉**。
+
+- 小小朋友因為無法配合施打點滴，故可以考慮經由**肌肉注射**或是**面罩吸入**麻醉藥劑，待睡著後再施打點滴。
+- 大小孩可直接經由點滴加入麻醉藥劑，使其睡著。
+
+### 3. 術中守護與術後恢復
+
+手術／檢查的過程，麻醉醫師會注意小朋友的**生命徵象（呼吸、心跳、血壓、體溫）**，以確保小朋友的安全。
+
+手術或是檢查結束後，會讓小朋友逐漸甦醒，並在恢復室接受後續的照顧。通常會請家長至恢復室陪伴小朋友，以減輕其焦慮。
+
+離開恢復室前，會有護理師向您衛教術後應該注意的照護事項，如**進食時間、傷口照護**等。
+
+## 二、麻醉是否會影響小朋友的生長發育？
+
+儘管近年來一些動物實驗發現，麻醉藥劑似乎會對動物的腦部發育發展造成不等的影響，但是這些動物實驗的結果是否能夠對應到人體上，仍是個很大的未知數。
+
+故在必要的檢查或是手術前，務必和您的小兒科醫師或是執行醫療處置的醫師做充分的溝通，也**不需讓這些證據未明的疑慮延遲必要的治療**。
+
+麻醉醫師一直以來是把**病人安全**視為首要顧念，您可以放心地把小朋友交給專業的麻醉醫師做最妥善的照顧。
+
+## 三、家長安心小提醒
+
+- 主動告知完整病史、先天或遺傳疾病、正在使用的藥物與過敏史。
+- 分享孩子過去接受麻醉或手術的經驗，供醫療團隊參考。
+- 對麻醉方式或風險有疑問，術前與麻醉醫師充分討論。
+- 必要的檢查或手術，不因證據未明的疑慮而延遲。
+- 恢復室陪伴孩子，並在離院前確認進食時間與傷口照護方式。
+
+## 四、學習評量（5 題選擇題）
+
+> 請選出最合適的答案，答案與解析附於各題之後。
+
+### 第 1 題
+
+小朋友接受麻醉前，醫療團隊最需要詳細了解下列哪一項資訊？
+
+- A. 小朋友在學校的成績與才藝表現
+- B. 先天性與遺傳性疾病、用藥史、過敏史及過去麻醉經驗
+- C. 家長的工作地點與上下班時間
+- D. 小朋友最喜歡的玩具與卡通角色
+
+**答案：B**
+
+**解析：** 麻醉前必須完整評估過去病史，包含先天性、遺傳性疾病、用藥史、過敏史，甚至是麻醉的經驗，這些都是本次麻醉規劃的重要參考。
+
+### 第 2 題
+
+對於無法配合施打點滴的小小朋友，可以考慮用哪種方式進行麻醉誘導？
+
+- A. 只能等孩子長大後再接受手術
+- B. 先由家長抓住孩子強行施打點滴，不使用其他方式
+- C. 經由肌肉注射或面罩吸入麻醉藥劑，待睡著後再施打點滴
+- D. 讓孩子自行口服安眠藥後走進手術室
+
+**答案：C**
+
+**解析：** 小小朋友因為無法配合施打點滴，可以考慮經由肌肉注射或面罩吸入麻醉藥劑，待睡著後再施打點滴；大小孩則可直接經由點滴加入麻醉藥劑。
+
+### 第 3 題
+
+手術或檢查過程中，麻醉醫師會特別注意小朋友的哪些生命徵象？
+
+- A. 身高、體重、視力、聽力
+- B. 血糖、尿酸、膽固醇、三酸甘油脂
+- C. 牙齒數目、頭髮長度、指甲顏色
+- D. 呼吸、心跳、血壓、體溫
+
+**答案：D**
+
+**解析：** 手術／檢查過程中，麻醉醫師會注意小朋友的生命徵象（呼吸、心跳、血壓、體溫），以確保小朋友的安全。
+
+### 第 4 題
+
+關於「麻醉是否會影響小朋友生長發育」，下列敘述何者正確？
+
+- A. 動物實驗結果已確定同樣會發生在人體，應延遲所有必要手術
+- B. 動物實驗結果能否對應到人體仍是未知，不應讓證據未明的疑慮延遲必要治療
+- C. 全身麻醉一定會造成腦部永久損傷
+- D. 只要接受麻醉，就一定會影響身高發育
+
+**答案：B**
+
+**解析：** 動物實驗結果是否能夠對應到人體仍是很大的未知數。必要檢查或手術前應與醫師充分溝通，但不需讓證據未明的疑慮延遲必要的治療。
+
+### 第 5 題
+
+手術或檢查結束後，關於恢復室的照顧，下列何者正確？
+
+- A. 會讓小朋友逐漸甦醒，通常請家長至恢復室陪伴以減輕焦慮
+- B. 小朋友醒來後必須立刻自行走路回家
+- C. 恢復室禁止家長陪伴，以免影響護理作業
+- D. 離開恢復室前不需要任何術後照護說明
+
+**答案：A**
+
+**解析：** 手術或檢查結束後會讓小朋友逐漸甦醒，並在恢復室接受後續照顧；通常會請家長至恢復室陪伴以減輕焦慮。離開前護理師會衛教進食時間、傷口照護等事項。
+
+## 五、學習回饋：自我檢核
+
+完成測驗後，請勾選您已經理解的事項，作為這次學習的回饋。
+
+- [ ] 我能說出麻醉前需要提供哪些病史與用藥資訊。
+- [ ] 我了解幼童可能先以肌肉注射或面罩吸入方式進行麻醉誘導。
+- [ ] 我知道麻醉過程中醫師會監測呼吸、心跳、血壓與體溫。
+- [ ] 我了解目前動物實驗結果與人體的關聯仍未知，不應延遲必要治療。
+- [ ] 我知道離開恢復室前，要確認進食時間與傷口照護方式。
+
+## 參考資料
+
+1. 中國醫藥大學附設醫院麻醉部（2026）。小兒麻醉〔衛教單張〕（編碼 HE-20138）。https://www.cmuh.cmu.edu.tw/HealthEdus/Detail?no=5222
+2. Vutskits, L., Davidson, A., & Soriano, S. G. (2025). Pediatric anesthesia. In M. A. Gropper, L. I. Eriksson, L. A. Fleisher, N. H. Cohen, K. Leslie, & O. Johnson-Akeju (Eds.), Miller's anesthesia (10th ed., pp. 2266–2299.e7). Elsevier.
+3. American Society of Anesthesiologists. (2021). Statement on practice recommendations for pediatric anesthesia. https://www.asahq.org/standards-and-practice-parameters/statement-on-practice-recommendations-for-pediatric-anesthesia
+4. U.S. Food and Drug Administration. (2016). FDA drug safety communication: FDA review results in new warnings about using general anesthetics and sedation drugs in young children and pregnant women. https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-fda-review-results-new-warnings-about-using-general-anesthetics-and
+5. McCann, M. E., de Graaff, J. C., Dorris, L., et al. (2019). Neurodevelopmental outcome at 5 years of age after general anaesthesia or awake-regional anaesthesia in infancy (GAS): An international, multicentre, randomised, controlled equivalence trial. The Lancet, 393(10172), 664–677. https://doi.org/10.1016/S0140-6736(18)32485-1
+
+## 製作單位與聯絡資訊
+
+- 製作單位：麻醉部
+- 編碼：HE-20138
+- 電話：(04) 22052121 分機 15107、13132
+
+---
+
+本教材依中國醫藥大學附設醫院衛教單張「小兒麻醉」整理製作，僅供衛生教育參考。每位孩子的狀況不同，實際麻醉規劃與照護請以醫療團隊的說明為準。
+</script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ================= 共用 ================= */
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const store = {
+    get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } },
+    set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  };
+  const toastEl = $('#toast');
+  let toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 1900);
+  }
+
+  /* ================= 字體大小 ================= */
+  const fontSizes = [17, 19.5, 15.5];
+  let fontIdx = Number(store.get('pa:font', 0)) || 0;
+  if (fontIdx < 0 || fontIdx >= fontSizes.length) fontIdx = 0;
+  function applyFont(){
+    document.documentElement.style.setProperty('--fs', fontSizes[fontIdx] + 'px');
+  }
+  applyFont();
+  $('#fontBtn').addEventListener('click', function(){
+    fontIdx = (fontIdx + 1) % fontSizes.length;
+    applyFont();
+    store.set('pa:font', fontIdx);
+    toast('字體：' + ['標準', '大字', '小字'][fontIdx]);
+  });
+
+  /* ================= Markdown 解析 ================= */
+  let taskSeq = 0;
+  function esc(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function inline(s){
+    let t = esc(s);
+    t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
+    t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    t = t.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+    t = t.replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    return t;
+  }
+
+  function renderMarkdown(md){
+    const lines = md.replace(/\r/g, '').split('\n');
+    let html = '';
+    let i = 0;
+    let para = [];
+    let list = null; // {type:'ul'|'ol'|'tasks', items:[]}
+
+    function flushPara(){
+      if (para.length){
+        html += '<p>' + inline(para.join('')) + '</p>';
+        para = [];
+      }
+    }
+    function flushList(){
+      if (list){
+        html += '<' + list.type.replace('tasks','ul') + (list.type === 'tasks' ? ' class="tasks"' : '') + '>' + list.items.join('') + '</' + list.type.replace('tasks','ul') + '>';
+        list = null;
+      }
+    }
+    function flushAll(){ flushPara(); flushList(); }
+
+    while (i < lines.length){
+      const raw = lines[i];
+      const line = raw.trim();
+
+      if (!line){
+        flushAll();
+        i++;
+        continue;
+      }
+
+      // 標題
+      let m = line.match(/^(#{1,4})\s+(.*)$/);
+      if (m){
+        flushAll();
+        const level = m[1].length;
+        const tag = level === 1 ? 'h2' : 'h' + Math.min(level, 6);
+        html += '<' + tag + '>' + inline(m[2]) + '</' + tag + '>';
+        i++;
+        continue;
+      }
+
+      // 分隔線
+      if (/^(-{3,}|\*{3,})$/.test(line)){
+        flushAll();
+        html += '<hr>';
+        i++;
+        continue;
+      }
+
+      // 引用
+      if (/^>\s?/.test(line)){
+        flushAll();
+        const buf = [];
+        while (i < lines.length && /^>\s?/.test(lines[i].trim())){
+          buf.push(lines[i].trim().replace(/^>\s?/, ''));
+          i++;
+        }
+        html += '<blockquote><p>' + buf.map(inline).join('<br>') + '</p></blockquote>';
+        continue;
+      }
+
+      // 任務清單
+      m = line.match(/^-\s+\[([ xX])\]\s+(.*)$/);
+      if (m){
+        flushPara();
+        if (!list || list.type !== 'tasks'){ flushList(); list = { type:'tasks', items:[] }; }
+        const key = 't' + (taskSeq++);
+        const checked = m[1].toLowerCase() === 'x' ? ' checked' : '';
+        list.items.push('<li><label class="task"><input type="checkbox" data-task="' + key + '"' + checked + '><span class="box"></span><span class="txt">' + inline(m[2]) + '</span></label></li>');
+        i++;
+        continue;
+      }
+
+      // 無序清單
+      if (/^[-*]\s+/.test(line)){
+        flushPara();
+        if (!list || list.type !== 'ul'){ flushList(); list = { type:'ul', items:[] }; }
+        list.items.push('<li>' + inline(line.replace(/^[-*]\s+/, '')) + '</li>');
+        i++;
+        continue;
+      }
+
+      // 有序清單
+      m = line.match(/^\d+\.\s+(.*)$/);
+      if (m){
+        flushPara();
+        if (!list || list.type !== 'ol'){ flushList(); list = { type:'ol', items:[] }; }
+        list.items.push('<li>' + inline(m[1]) + '</li>');
+        i++;
+        continue;
+      }
+
+      // 一般段落
+      flushList();
+      para.push(line);
+      i++;
+    }
+    flushAll();
+    return html;
+  }
+
+  /* ================= 載入內容 ================= */
+  function splitDoc(md){
+    const lines = md.replace(/\r/g, '').split('\n');
+    const h1 = lines.findIndex(function(l){ return /^#\s+/.test(l.trim()); });
+    let title = '小兒麻醉';
+    const meta = [];
+    let bodyStart = 0;
+    if (h1 >= 0){
+      title = lines[h1].trim().replace(/^#\s+/, '');
+      let j = h1 + 1;
+      while (j < lines.length && !/^##\s+/.test(lines[j].trim())){
+        const l = lines[j].trim();
+        if (/^>\s?/.test(l)) meta.push(l.replace(/^>\s?/, ''));
+        j++;
+      }
+      bodyStart = j;
+    }
+    let body = lines.slice(bodyStart).join('\n');
+    // App 內以互動測驗呈現靜態測驗段；學習回饋獨立放到測驗之後。
+    // 參考資料與聯絡資訊屬於衛教內容，保留在教材最後（測驗解鎖前）。
+    const qs = body.indexOf('## 四、學習評量');
+    const rs = body.indexOf('## 五、學習回饋');
+    let refsAt = body.indexOf('## 參考資料');
+    if (refsAt < 0) refsAt = body.indexOf('## 製作單位與聯絡資訊');
+    if (refsAt < 0) refsAt = body.length;
+
+    let reflect = '';
+    if (rs >= 0) reflect = body.slice(rs, refsAt);
+
+    const contentEnd = qs >= 0 ? qs : (rs >= 0 ? rs : body.length);
+    body = body.slice(0, contentEnd) + (refsAt < body.length ? body.slice(refsAt) : '');
+    return { title: title, meta: meta, body: body, reflect: reflect };
+  }
+
+  async function getMarkdown(){
+    const embedded = $('#md-source').textContent.trim();
+    if (location.protocol === 'http:' || location.protocol === 'https:'){
+      try {
+        const res = await fetch('content.md', { cache: 'no-cache' });
+        if (res.ok){
+          const text = await res.text();
+          if (text.trim().length > 100) return text;
+        }
+      } catch(e){ /* 離線或單檔開啟時使用內嵌內容 */ }
+    }
+    return embedded;
+  }
+
+  const taskState = store.get('pa:tasks', {}) || {};
+
+  async function initContent(){
+    taskSeq = 0;
+    const md = await getMarkdown();
+    const doc = splitDoc(md);
+    if (doc.title) document.title = doc.title + '｜互動衛教教材';
+    $('#content').innerHTML = renderMarkdown(doc.body);
+    if (doc.reflect) $('#reflectBody').innerHTML = renderMarkdown(doc.reflect);
+
+    // 內容區標題加上錨點
+    $$('#content h2').forEach(function(h, idx){ h.id = 'sec-' + idx; });
+
+    // 還原自我檢核勾選狀態
+    $$('input[data-task]').forEach(function(cb){
+      if (taskState[cb.dataset.task]) cb.checked = true;
+    });
+  }
+
+  $('#content').addEventListener('change', function(e){
+    const cb = e.target.closest('input[type="checkbox"][data-task]');
+    if (!cb) return;
+    taskState[cb.dataset.task] = cb.checked;
+    store.set('pa:tasks', taskState);
+  });
+
+  /* ================= 閱讀解鎖 ================= */
+  const READ_KEY = 'pa:readDone';
+  let quizUnlocked = store.get(READ_KEY, false) === true;
+  let readReady = quizUnlocked;   // 已捲到教材最後，等待使用者確認
+  let readObserver = null;
+
+  function renderGate(){
+    const done = quizUnlocked;
+
+    $('#quizLocked').hidden = done;
+    $('#quizBody').hidden = !done;
+
+    const card = $('#readDone');
+    card.classList.toggle('done', done);
+    card.classList.toggle('ready', !done && readReady);
+
+    const btn = $('#startQuiz');
+    btn.disabled = !done && !readReady;
+    btn.textContent = done ? '開始測驗' : (readReady ? '我已閱讀完畢，開始測驗' : '請先閱讀教材');
+
+    if (done){
+      $('#rdTitle').textContent = '教材已閱讀完成';
+      $('#rdDesc').textContent = '測驗已解鎖，可以開始作答了。';
+    } else if (readReady){
+      $('#rdTitle').textContent = '讀到最後了，確認一下';
+      $('#rdDesc').textContent = '按下按鈕代表您已完成閱讀，並解鎖測驗。';
+    } else {
+      $('#rdTitle').textContent = '讀到最後，才能進入測驗';
+      $('#rdDesc').textContent = '把教材完整看完，抵達這裡即可解鎖。';
+    }
+  }
+
+  function markReady(){
+    if (quizUnlocked || readReady) return;
+    readReady = true;
+    renderGate();
+    toast('已抵達教材最後，請按「我已閱讀完畢」');
+  }
+
+  function unlockQuiz(){
+    if (quizUnlocked) return;
+    quizUnlocked = true;
+    readReady = true;
+    store.set(READ_KEY, true);
+    renderGate();
+    toast('測驗已解鎖，開始作答吧！');
+    $('#quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function watchReading(){
+    const target = $('#readDone');
+    if (!target) return;
+    renderGate();
+    if (quizUnlocked) return;
+
+    function checkCard(){
+      if (quizUnlocked || readReady) return;
+      const r = target.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9 && r.bottom > 0) markReady();
+    }
+
+    window.addEventListener('scroll', checkCard, { passive: true });
+    window.addEventListener('resize', checkCard);
+    setTimeout(checkCard, 400);
+
+    if ('IntersectionObserver' in window){
+      readObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting){
+            markReady();
+            readObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.55 });
+      readObserver.observe(target);
+    }
+  }
+
+  $('#startQuiz').addEventListener('click', function(){
+    if (quizUnlocked){
+      $('#quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (readReady){
+      unlockQuiz();
+    }
+  });
+  $('#goRead').addEventListener('click', function(){
+    $('#content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ================= 測驗 ================= */
+  const questions = [
+    {
+      q: '小朋友接受麻醉前，醫療團隊最需要詳細了解下列哪一項資訊？',
+      options: [
+        '小朋友在學校的成績與才藝表現',
+        '先天性與遺傳性疾病、用藥史、過敏史及過去麻醉經驗',
+        '家長的工作地點與上下班時間',
+        '小朋友最喜歡的玩具與卡通角色'
+      ],
+      answer: 1,
+      why: '麻醉前必須完整評估過去病史，包含先天性、遺傳性疾病、用藥史、過敏史，甚至是麻醉的經驗，這些都是本次麻醉規劃的重要參考。'
+    },
+    {
+      q: '對於無法配合施打點滴的小小朋友，可以考慮用哪種方式進行麻醉誘導？',
+      options: [
+        '只能等孩子長大後再接受手術',
+        '先由家長抓住孩子強行施打點滴，不使用其他方式',
+        '經由肌肉注射或面罩吸入麻醉藥劑，待睡著後再施打點滴',
+        '讓孩子自行口服安眠藥後走進手術室'
+      ],
+      answer: 2,
+      why: '小小朋友因為無法配合施打點滴，可以考慮經由肌肉注射或面罩吸入麻醉藥劑，待睡著後再施打點滴；大小孩則可直接經由點滴加入麻醉藥劑。'
+    },
+    {
+      q: '手術或檢查過程中，麻醉醫師會特別注意小朋友的哪些生命徵象？',
+      options: [
+        '身高、體重、視力、聽力',
+        '血糖、尿酸、膽固醇、三酸甘油脂',
+        '牙齒數目、頭髮長度、指甲顏色',
+        '呼吸、心跳、血壓、體溫'
+      ],
+      answer: 3,
+      why: '手術／檢查過程中，麻醉醫師會注意小朋友的生命徵象（呼吸、心跳、血壓、體溫），以確保小朋友的安全。'
+    },
+    {
+      q: '關於「麻醉是否會影響小朋友生長發育」，下列敘述何者正確？',
+      options: [
+        '動物實驗結果已確定同樣會發生在人體，應延遲所有必要手術',
+        '動物實驗結果能否對應到人體仍是未知，不應讓證據未明的疑慮延遲必要治療',
+        '全身麻醉一定會造成腦部永久損傷',
+        '只要接受麻醉，就一定會影響身高發育'
+      ],
+      answer: 1,
+      why: '動物實驗結果是否能夠對應到人體仍是很大的未知數。必要檢查或手術前應與醫師充分溝通，但不需讓證據未明的疑慮延遲必要的治療。'
+    },
+    {
+      q: '手術或檢查結束後，關於恢復室的照顧，下列何者正確？',
+      options: [
+        '會讓小朋友逐漸甦醒，通常請家長至恢復室陪伴以減輕焦慮',
+        '小朋友醒來後必須立刻自行走路回家',
+        '恢復室禁止家長陪伴，以免影響護理作業',
+        '離開恢復室前不需要任何術後照護說明'
+      ],
+      answer: 0,
+      why: '手術或檢查結束後會讓小朋友逐漸甦醒，並在恢復室接受後續照顧；通常會請家長至恢復室陪伴以減輕焦慮。離開前護理師會衛教進食時間、傷口照護等事項。'
+    }
+  ];
+
+  const LETTERS = ['A','B','C','D'];
+  let answered = new Array(questions.length).fill(null);
+
+  function buildQuiz(){
+    const wrap = $('#quizList');
+    wrap.innerHTML = '';
+    questions.forEach(function(item, qi){
+      const card = document.createElement('div');
+      card.className = 'q';
+      card.dataset.qi = qi;
+
+      const head = document.createElement('div');
+      head.className = 'q-head';
+      const num = document.createElement('span');
+      num.className = 'q-num';
+      num.textContent = 'Q' + (qi + 1);
+      const h3 = document.createElement('h3');
+      h3.textContent = item.q;
+      head.appendChild(num);
+      head.appendChild(h3);
+      card.appendChild(head);
+
+      const opts = document.createElement('div');
+      opts.className = 'opts';
+      item.options.forEach(function(text, oi){
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'opt';
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = LETTERS[oi];
+        const t = document.createElement('span');
+        t.className = 'otxt';
+        t.textContent = text;
+        btn.appendChild(badge);
+        btn.appendChild(t);
+        btn.addEventListener('click', function(){ answer(qi, oi); });
+        opts.appendChild(btn);
+      });
+      card.appendChild(opts);
+
+      const fb = document.createElement('div');
+      fb.className = 'fb';
+      fb.setAttribute('aria-live', 'polite');
+      card.appendChild(fb);
+
+      wrap.appendChild(card);
+    });
+  }
+
+  function answer(qi, oi){
+    if (answered[qi] !== null) return;
+    answered[qi] = oi;
+
+    const item = questions[qi];
+    const card = $('#quizList').children[qi];
+    const buttons = $$('.opt', card);
+    const fb = $('.fb', card);
+    const ok = oi === item.answer;
+
+    buttons.forEach(function(btn, i){
+      btn.disabled = true;
+      const badge = $('.badge', btn);
+      if (i === item.answer){
+        btn.classList.add('correct');
+        badge.textContent = '✓';
+      }
+      if (i === oi && !ok){
+        btn.classList.add('wrong');
+        badge.textContent = '✕';
+      }
+    });
+
+    fb.className = 'fb show ' + (ok ? 'ok' : 'no');
+    fb.innerHTML = '<strong>' + (ok ? '答對了！' : '正確答案是 ' + LETTERS[item.answer]) + '</strong><p>' + item.why + '</p>';
+
+    updateStatus();
+  }
+
+  function updateStatus(){
+    const done = answered.filter(function(a){ return a !== null; }).length;
+    const score = answered.reduce(function(sum, a, i){
+      return sum + (a === questions[i].answer ? 1 : 0);
+    }, 0);
+
+    $('#doneNum').textContent = done;
+    $('#scoreNum').textContent = score;
+    $('#trackFill').style.width = (done / questions.length * 100) + '%';
+
+    if (done === questions.length){
+      const res = $('#quizResult');
+      res.hidden = false;
+      $('#ring').style.setProperty('--p', Math.round(score / questions.length * 100));
+      $('#ringTxt').textContent = score + '/' + questions.length;
+
+      let title, text;
+      if (score === 5){
+        title = '全部答對，太棒了！';
+        text = '您已掌握小兒麻醉的重點，可以把這份教材分享給其他照顧者。';
+      } else if (score >= 3){
+        title = '很不錯，再複習一下會更安心';
+        text = '建議回到上方對應段落，看看每題解析，把不確定的地方補起來。';
+      } else {
+        title = '別擔心，慢慢來';
+        text = '麻醉資訊本來就需要一點時間理解。回到教材重點段落複習後，再試一次。';
+      }
+      $('#resTitle').textContent = title;
+      $('#resText').textContent = text;
+
+      const best = Number(store.get('pa:best', -1));
+      if (score > best) store.set('pa:best', score);
+      res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function resetQuiz(){
+    answered = new Array(questions.length).fill(null);
+    $('#quizResult').hidden = true;
+    buildQuiz();
+    updateStatus();
+    $('#quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  $('#retryBtn').addEventListener('click', resetQuiz);
+
+  /* ================= 分享 ================= */
+  async function shareContent(text){
+    const url = location.href.indexOf('http') === 0 ? location.href : '';
+    const payload = { title: '小兒麻醉｜衛教教材', text: text };
+    if (url) payload.url = url;
+    if (navigator.share){
+      try { await navigator.share(payload); return; } catch(e){ if (e && e.name === 'AbortError') return; }
+    }
+    try {
+      await navigator.clipboard.writeText(text + (url ? '\n' + url : ''));
+      toast('已複製，可貼到聊天室分享');
+    } catch(e){
+      toast('請直接複製網址分享');
+    }
+  }
+  $('#shareBtn').addEventListener('click', function(){
+    shareContent('小兒麻醉衛教教材：陪孩子安心接受麻醉與手術。');
+  });
+  $('#shareResult').addEventListener('click', function(){
+    const score = answered.reduce(function(sum, a, i){
+      return sum + (a === questions[i].answer ? 1 : 0);
+    }, 0);
+    shareContent('我完成了「小兒麻醉」衛教評量，答對 ' + score + ' / 5 題！');
+  });
+
+  /* ================= 安裝提示 ================= */
+  let installPrompt = null;
+  const installBtn = $('#installBtn');
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (standalone) installBtn.hidden = true;
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    installPrompt = e;
+    installBtn.hidden = false;
+  });
+  installBtn.addEventListener('click', async function(){
+    if (installPrompt){
+      installPrompt.prompt();
+      try { await installPrompt.userChoice; } catch(e){}
+      installPrompt = null;
+    } else {
+      $('#tipModal').hidden = false;
+    }
+  });
+  $('#tipClose').addEventListener('click', function(){ $('#tipModal').hidden = true; });
+  $('#tipModal').addEventListener('click', function(e){ if (e.target === this) this.hidden = true; });
+
+  /* ================= 導覽與進度 ================= */
+  const navButtons = $$('.nav-btn');
+  function scrollToSection(id){
+    if (id === 'quiz' && !quizUnlocked){
+      if (readReady){
+        toast('請按「我已閱讀完畢」以解鎖測驗');
+        document.getElementById('readDone').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        toast('請先閱讀完整份教材，才能進入測驗');
+      }
+      return;
+    }
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 66;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+  navButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){ scrollToSection(btn.dataset.target); });
+  });
+
+  function onScroll(){
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    $('#readFill').style.width = (max > 0 ? Math.min(100, window.scrollY / max * 100) : 0) + '%';
+
+    const probe = window.scrollY + window.innerHeight * 0.42;
+    const quizTop = $('#quiz').offsetTop;
+    const reflectEl = document.getElementById('reflect');
+    const reflectTop = reflectEl ? reflectEl.getBoundingClientRect().top + window.scrollY : Infinity;
+
+    let active = 'content';
+    if (quizUnlocked && probe >= quizTop) active = 'quiz';
+    if (quizUnlocked && probe >= reflectTop - 60) active = 'reflect';
+    navButtons.forEach(function(b){ b.classList.toggle('active', b.dataset.target === active); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  /* ================= 啟動 ================= */
+  initContent().then(function(){
+    buildQuiz();
+    updateStatus();
+    watchReading();
+    onScroll();
+  });
+
+  /* ================= Service Worker（需 http/https） ================= */
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+})();
+</script>
+</body>
+</html>
